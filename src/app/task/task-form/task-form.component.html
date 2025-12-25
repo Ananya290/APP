@@ -1,0 +1,94 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+
+      <form [formGroup]="toDoFrom" class="card shadow p-4 rounded-4" (ngSubmit)="onSubmit(toDoFrom.value)">
+
+        <h4 class="text-center mb-4 fw-semibold text-primary">
+  {{ isEditMode ? 'Edit Task' : 'Add New Task' }}        </h4>
+
+        <div class="mb-3">
+          <label for="assignedTo" class="form-label fw-medium">
+            Assignee
+          </label>
+          <input
+            id="assignedTo"
+            type="text"
+            class="form-control"
+            placeholder="Enter assignee name"
+            formControlName="assignedTo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="status" class="form-label fw-medium">
+            Status
+          </label>
+          <select
+            id="status"
+            class="form-select"
+            formControlName="status"
+          >
+            <option value="" disabled>Select status</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="dueDate" class="form-label fw-medium">
+            Due Date
+          </label>
+          <input
+            id="dueDate"
+            type="date"
+            class="form-control"
+            formControlName="dueDate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="priority" class="form-label fw-medium">
+            Priority
+          </label>
+          <select
+            id="priority"
+            class="form-select"
+            formControlName="priority"
+          >
+            <option value="" disabled>Select priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="description" class="form-label fw-medium">
+            Description
+          </label>
+          <textarea
+            id="description"
+            rows="3"
+            class="form-control"
+            placeholder="Enter task description"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            [disabled]="toDoFrom.invalid"
+          >
+            {{ isEditMode ? 'Update Task' : 'Add Task' }}
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

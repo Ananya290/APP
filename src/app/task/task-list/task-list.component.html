@@ -1,0 +1,32 @@
+
+<div class="container mt-4">
+    <h1>Task List</h1>
+
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let task of tasks">
+                <td><input type="checkbox"></td>
+                <td>{{ task.assignedTo }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.dueDate | date }}</td>
+                <td>{{ task.priority }}</td>
+                <td><button class="btn btn-danger btn-sm m-2" (click)="deleteTask(task)">Delete</button> 
+                <button class="btn btn-primary btn-sm " (click)="onEdit(task)">Edit</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
