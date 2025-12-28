@@ -36,7 +36,10 @@ export class TaskFormComponent implements OnInit {
           this.isEditMode = true; 
         }
       })
-      this.getTaskbyId();
+      this.service.todo$.subscribe((res:toDoI[])=>{
+        this.taskListData = JSON.parse(JSON.stringify(res));
+        console.log("Task List Data:", this.taskListData);
+      })
   }
 
 getTaskbyId(){
@@ -55,20 +58,19 @@ onSubmit(data :toDoI){
   if(this.isEditMode){
     this.service.updateApi(data,this.taskID).subscribe((res:toDoI)=>{
       console.log("Updated:",res);
+      
       this.toDoFrom.reset();
       this.route.navigate(['/list']);
     })
   }else{
       this.service.postApi(data).subscribe((res:toDoI)=>{
         console.log("Posted:",res);
+        this.service.todo$.next([...this.service.todo$.getValue(), res]);
         this.toDoFrom.reset();
-        this.route.navigate(['/list']);
+        // this.route.navigate(['/list']);
       })
     }
 
-
-
-//  })
 }
 
   }

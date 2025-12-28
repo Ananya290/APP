@@ -20,6 +20,7 @@ export class TaskListComponent  implements OnInit {
   loadData(){
     this.service.getAPi().subscribe((res : toDoI[])=>{
       this.tasks = res
+      this.service.todo$.next(res);
       console.log(this.tasks)
       console.log([res])
     })
@@ -31,7 +32,7 @@ export class TaskListComponent  implements OnInit {
     })
   }
  onEdit(task:toDoI){
-  this.router.navigate(['/'], { queryParams: { id: task.id } });
+  this.router.navigate(['/form'], { queryParams: { id: task.id } });
  }  
 
 
