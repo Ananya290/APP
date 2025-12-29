@@ -14,13 +14,15 @@ import { AuthComponent } from './auth/auth/auth.component';
     AppComponent,
     TaskListComponent,
     TaskFormComponent,
-    AuthComponent,
+    AuthComponent
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     

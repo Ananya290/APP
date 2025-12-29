@@ -1,1 +1,72 @@
-<p>auth works!</p>
+<div class="container">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+
+          <h3 class="text-center mb-4">{{loginMode ? 'Login' : 'Sign Up'}}</h3>
+
+          <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+                formControlName="email"
+              />
+
+              <small class="text-danger"
+                *ngIf="authForm.get('email')?.errors?.['required']
+                && authForm.get('email')?.touched ">
+                Email is required
+              </small>
+              <small class="text-danger"
+                *ngIf="authForm.get('email')?.errors?.['pattern']
+                && authForm.get('email')?.touched ">
+                Please enter a valid email
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter password"
+                formControlName="password"
+              />
+
+              <small class="text-danger"
+                *ngIf="authForm.get('password')?.errors?.['required']
+                && authForm.get('password')?.touched ">
+                Password is required
+              </small>
+              <small class="text-danger" *ngIf="authForm.get('password')?.errors?.['minlength']
+                && authForm.get('password')?.touched ">
+                Password must be at least 6 characters long </small>
+                <small class="text-danger" *ngIf="authForm.get('password')?.errors?.['maxlength']
+                && authForm.get('password')?.touched ">
+                Password must be at most 20 characters long </small>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              >
+              {{loginMode ? 'Login' : 'Sign Up'}}
+            </button>
+            <span>{{loginMode ?'Don\'t have an account?': 'Already have an account?'}} </span>
+            <a (click)="toggleMode()"  >{{loginMode ? 'Sign Up' : 'Login'}}</a>
+            <p>Forget password</p>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
