@@ -8,13 +8,15 @@ import { TaskFormComponent } from './task/task-form/task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     TaskFormComponent,
-    AuthComponent
+    AuthComponent,
+    NotificationComponent
   
   ],
   imports: [

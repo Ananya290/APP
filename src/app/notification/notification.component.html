@@ -1,0 +1,9 @@
+<div *ngIf="notificationMessage?.show"
+     class="notification-toast"
+     [ngClass]="{
+       'success': notificationMessage.type === 'success',
+       'error': notificationMessage.type === 'error',
+       'info': notificationMessage.type === 'info'
+     }">
+  {{ notificationMessage.message }}
+</div>

@@ -6,8 +6,8 @@ import { TaskFormComponent } from './task/task-form/task-form.component';
 import { AuthComponent } from './auth/auth/auth.component';
 
 const routes: Routes = [
-  {path:" ", component:AppComponent},
-  {path:"auth",component:AuthComponent},
+  // {path:" ", component:AppComponent},
+  {path:"",component:AuthComponent},
   {path:"list",component:TaskListComponent},
   {path:"form",component:TaskFormComponent}
 ];

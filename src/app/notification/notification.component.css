@@ -1,0 +1,24 @@
+.notification-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  min-width: 250px;
+  z-index: 9999;
+  animation: slideIn 0.5s, fadeOut 0.5s 4.5s forwards; /* 5 sec total */
+}
+
+/* Types */
+.success { background-color: #4CAF50; } /* green */
+.error { background-color: #F44336; }   /* red */
+.info { background-color: #2196F3; }    /* blue */
+
+/* Animation */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: tra
+  }}
