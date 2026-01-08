@@ -30,7 +30,8 @@ export class AuthComponent implements OnInit {
         [
           Validators.email,
           Validators.required,
-          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+         Validators.pattern('^[a-zA-Z0-9._%+-]+@gmail\\.com$')
+,
         ],
       ],
       password: [
@@ -66,16 +67,19 @@ export class AuthComponent implements OnInit {
 
   this.authObservable.subscribe({
     next: (res) => {
+      console.log(res);
       this.notificationService.showSuccess(`${this.loginMode ? 'Login' : 'Sign Up'} Successfully`);
-      console.log('Authentication response:', res);
 
       this.authForm.reset();
 if(this.loginMode){
       this.route.navigate(['/list']);
 }    },
     error: (err) => {
-      this.notificationService.showError('Authentication Failed');
-      console.error(err);
+      this.notificationService.showError(err?.error?.error?.message);
+      console.log(err);
+            console.log(err.error.error.error.message)
+
+     
     }
   });
 }
